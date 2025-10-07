@@ -13,7 +13,7 @@ const clockwine = new AoiClient({
     type: "aoi.db",
     db: require("@akarui/aoi.db"),
     dbType: "KeyValue",
-    tables: ["main"],
+    tables: ["blacklisting"],
     securityKey: process.env.SECURITYKEY,
   }
 });
