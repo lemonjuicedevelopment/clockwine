@@ -11,9 +11,9 @@
   "description": "",
   "dependencies": {
     "@akarui/aoi.invite": "^1.0.0",
-    "@akarui/aoi.music": "^2.4.0",
     "@akarui/aoi.panel": "^0.0.10",
     "aoi.js": "^6.11.1",
+    "aoijs.lavalink": "^4.11.0",
     "dotenv": "^17.2.3",
     "ffmpeg-static": "^5.2.0",
     "glob": "^11.0.3",

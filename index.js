@@ -1,5 +1,5 @@
 const { AoiClient, LoadCommands } = require("aoi.js");
-const { AoiVoice, PlayerEvents, PluginName, Cacher, Filter } = require("@akarui/aoi.music");
+const { Manager } = require('aoijs.lavalink');
 const { Panel } = require("@akarui/aoi.panel");
 const { InviteManager } = require("@akarui/aoi.invite");
 require('dotenv').config()
@@ -18,26 +18,17 @@ const clockwine = new AoiClient({
   }
 });
 
-const voice = new AoiVoice(clockwine, {
-    searchOptions: {
-        youtubegl: "US",
-    },
-    requestOptions: {
-        offsetTimeout: 0,
-        soundcloudLikeTrackLimit: 200,
-    },
+const voice = new Manager(clockwine, {
+    nodes: [
+        {
+            name: 'lavalinko',
+            host: 'lava-v4.ajieblogs.eu.org',
+            port: 80,
+            auth: 'https://dsc.gg/ajidevserver',
+            secure: false
+        }
+    ]
 });
-
-voice.addPlugin(PluginName.Cacher, new Cacher("memory"));
-
-voice.addPlugin(
-    PluginName.Filter,
-    new Filter({
-        filterFromStart: false,
-    }),
-);
-
-voice.bindExecutor(clockwine.functionManager.interpreter);
 
 const panel = new Panel({
   port: 3000,
